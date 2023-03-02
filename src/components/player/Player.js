@@ -1,10 +1,17 @@
 import React from 'react';
 import './player.css'
+import { Sidebar ,Body, Footer} from '../index'
 
-const Player = () => {
+const Player = ({spotify}) => {
   return (
     <div className='player'>
-        <h3>Welcome to Spotify Player</h3>
+      <div className="player">
+        <div className="player__body">
+ <Sidebar/>
+       <Body/>
+        </div>
+      </div>
+    <Footer/>
     </div>
   )
 }
