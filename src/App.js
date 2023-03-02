@@ -9,26 +9,27 @@ import * as actionTypes from './constants/actionTypes'
 
 const spotify = new SpotifyWebApi()
 function App() {
-  const [token, setToken] = useState(null);
-  const [{user},dispatch ]= useDataLayerValue()
+  const [{user, token},dispatch ]= useDataLayerValue()
 
   useEffect(() => {
    const hash = getTokenFromResponse();
    window.location.hash = "";
    const _token = hash.access_token;
    if(_token){
-    setToken(_token);
+    dispatch({
+      type:actionTypes.SET_TOKEN,
+      token:_token
+    })
     spotify.setAccessToken(_token);
     spotify.getMe().then(user => {
-      //console.log('person', user.display_name);
       dispatch({
         type:actionTypes.SET_USER,
         user:user
       })
     }) 
    }
-  }, [])
-  console.log('person', user);
+  }, [user,token])
+
   
   return (
     <div className="app">
