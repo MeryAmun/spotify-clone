@@ -9,7 +9,7 @@ import * as actionTypes from './constants/actionTypes'
 
 const spotify = new SpotifyWebApi()
 function App() {
-  const [{user, token},dispatch ]= useDataLayerValue()
+  const [{user, token, playlist},dispatch ]= useDataLayerValue()
 
   useEffect(() => {
    const hash = getTokenFromResponse();
@@ -26,7 +26,14 @@ function App() {
         type:actionTypes.SET_USER,
         user:user
       })
-    }) 
+    }) ;
+
+    spotify.getUserPlaylists().then(playlist => {
+      dispatch({
+        type:actionTypes.SET_PLAYLIST,
+        playlist:playlist
+      })
+    })
    }
   }, [user,token])
 
