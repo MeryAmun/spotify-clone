@@ -16,11 +16,13 @@ function App() {
    window.location.hash = "";
    const _token = hash.access_token;
    if(_token){
+    spotify.setAccessToken(_token);
+
     dispatch({
       type:actionTypes.SET_TOKEN,
       token:_token
     })
-    spotify.setAccessToken(_token);
+
     spotify.getMe().then(user => {
       dispatch({
         type:actionTypes.SET_USER,
@@ -33,15 +35,16 @@ function App() {
         playlist:playlist
       })
     })
-    spotify.getPlaylist(user?.id).then(response => {
-      dispatch({
-        type:actionTypes.SET_DISCOVER_WEEKLY,
-        discover_weekly:response
-      })
-    })
+    // spotify.getPlaylist(user?.id).then(response => {
+    //   dispatch({
+    //     type:actionTypes.SET_DISCOVER_WEEKLY,
+    //     discover_weekly:response
+    //   })
+    // })
    }
   }, [user,token])
 console.log(user)
+console.log(spotify)
   
   return (
     <div className="app">

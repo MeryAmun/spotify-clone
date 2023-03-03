@@ -5,6 +5,8 @@ export const initialState = {
     user: null,
     playlist:[],
     playing:false,
+    spotify:null,
+    top_artists:null,
     item:null,
     token:null,
     discover_weekly:null
@@ -22,6 +24,11 @@ switch (action.type) {
             ...state, token:action.token
         }
         break;
+    case actions.SET_PLAYING:
+        return {
+           ...state, playing:action.playing
+        }
+        break;
     case actions.SET_PLAYLISTS:
         return {
            ...state, playlist:action.playlist
@@ -30,6 +37,21 @@ switch (action.type) {
     case actions.SET_DISCOVER_WEEKLY:
         return {
            ...state, discover_weekly:action.discover_weekly
+        }
+        break;
+    case actions.SET_ITEM:
+        return {
+           ...state, item:action.item
+        }
+        break;
+    case actions.SET_SPOTIFY:
+        return {
+           ...state, spotify:action.spotify
+        }
+        break;
+    case actions.TOP_ARTISTS:
+        return {
+           ...state, top_artists:action.top_artists
         }
         break;
     default:
