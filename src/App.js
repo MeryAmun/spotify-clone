@@ -27,16 +27,21 @@ function App() {
         user:user
       })
     }) ;
-
     spotify.getUserPlaylists().then(playlist => {
       dispatch({
-        type:actionTypes.SET_PLAYLIST,
+        type:actionTypes.SET_PLAYLISTS,
         playlist:playlist
+      })
+    })
+    spotify.getPlaylist(user?.id).then(response => {
+      dispatch({
+        type:actionTypes.SET_DISCOVER_WEEKLY,
+        discover_weekly:response
       })
     })
    }
   }, [user,token])
-
+console.log(user)
   
   return (
     <div className="app">
