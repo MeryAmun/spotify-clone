@@ -7,7 +7,7 @@ import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import { useDataLayerValue } from "../../context/DataLayer";
 
 const Sidebar = () => {
-  const[ {playlist }, dispatch ] = useDataLayerValue()
+  const[ {playlist }] = useDataLayerValue()
   return (
     <div className="sidebar">
       <img

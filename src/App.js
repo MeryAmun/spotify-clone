@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import { Login, Player } from './components';
 import { getTokenFromResponse } from './spotifyConfig';
@@ -9,7 +9,7 @@ import * as actionTypes from './constants/actionTypes'
 
 const spotify = new SpotifyWebApi()
 function App() {
-  const [{user, token, playlist},dispatch ]= useDataLayerValue()
+  const [{user, token},dispatch ]= useDataLayerValue()
 
   useEffect(() => {
    const hash = getTokenFromResponse();
@@ -35,14 +35,14 @@ function App() {
         playlist:playlist
       })
     })
-    // spotify.getPlaylist(user?.id).then(response => {
-    //   dispatch({
-    //     type:actionTypes.SET_DISCOVER_WEEKLY,
-    //     discover_weekly:response
-    //   })
-    // })
+    spotify.getPlaylist(user?.id).then(response => {
+      dispatch({
+        type:actionTypes.SET_DISCOVER_WEEKLY,
+        discover_weekly:response
+      })
+    })
    }
-  }, [user,token])
+  }, [token,dispatch,user?.id])
 console.log(user)
 console.log(spotify)
   

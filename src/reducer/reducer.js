@@ -18,44 +18,35 @@ switch (action.type) {
         return {
             ...state, user:action.user
         }
-        break;
     case actions.SET_TOKEN:
         return {
             ...state, token:action.token
         }
-        break;
     case actions.SET_PLAYING:
         return {
            ...state, playing:action.playing
         }
-        break;
     case actions.SET_PLAYLISTS:
         return {
            ...state, playlist:action.playlist
         }
-        break;
     case actions.SET_DISCOVER_WEEKLY:
         return {
            ...state, discover_weekly:action.discover_weekly
         }
-        break;
     case actions.SET_ITEM:
         return {
            ...state, item:action.item
         }
-        break;
     case actions.SET_SPOTIFY:
         return {
            ...state, spotify:action.spotify
         }
-        break;
     case actions.TOP_ARTISTS:
         return {
            ...state, top_artists:action.top_artists
         }
-        break;
     default:
-        break;
 }
 }
 export default reducer

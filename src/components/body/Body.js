@@ -5,15 +5,36 @@ import Header from "./Header";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import * as actionTypes from '../../constants/actionTypes'
 import { SongRow } from "../index";
 
 const Body = ({ spotify }) => {
-  const [{ discover_weekly }, dispatch] = useDataLayerValue();
+  const [{ discover_weekly,user }, dispatch] = useDataLayerValue();
   console.log(spotify)
   const playPlaylist = (id) => {
     spotify
       .play({
-        context_uri: `spotify:playlist:37i9dQZEVXcJZyENOWUFo7`,
+        context_uri:  `spotify:playlist:${user?.id}`,
+      })
+      .then((res) => {
+        spotify.getMyCurrentPlayingTrack().then((r) => {
+          dispatch({
+            type: actionTypes.SET_ITEM,
+            item: r.item,
+          });
+          dispatch({
+            type: actionTypes.SET_PLAYING,
+            playing: true,
+          });
+        });
+      });
+  };
+
+
+  const playSong = (id) => {
+    spotify
+      .play({
+        uris: [`spotify:track:${id}`],
       })
       .then((res) => {
         spotify.getMyCurrentPlayingTrack().then((r) => {
@@ -28,9 +49,6 @@ const Body = ({ spotify }) => {
         });
       });
   };
-
-
-  console.log(discover_weekly?.description);
   return (
     <div className="body">
       <Header spotify={spotify} />
@@ -50,7 +68,7 @@ const Body = ({ spotify }) => {
         </div>
         {/* songs */}
         {discover_weekly?.tracks?.items?.map(({ track }, index) => (
-          <SongRow track={track} key={index} />
+          <SongRow track={track} key={index}  playSong={playSong}/>
         ))}
       </div>
     </div>
