@@ -14,23 +14,17 @@ const Body = ({ spotify, playlist, name }) => {
   const [description, setDescription] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
   const [tracks, setTracks] = useState([]);
-  //const [playlists, setPlaylists] = useState([]);
+  const [trackId, setTrackId] = useState([]);
 
   console.log(playlist);
 
-  //console.log(token)
 
-  // dispatch({
-  //   type:actionTypes.SET_DISCOVER_WEEKLY,
-  //   discover_weekly:response
-  // })
-  //   GET /echo/get/json HTTP/1.1
-  // Host: reqbin.com
-  // Accept: application/json
-  // Authorization: Bearer my token
   useEffect(() => {
     playlist?.items?.map((item) => {
       if (item.name === name) {
+        setItemName(item?.name)
+        setDescription(item?.description);
+        setImageUrl(item?.images[0]?.url)
         fetch(`${item?.tracks?.href}`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -41,9 +35,11 @@ const Body = ({ spotify, playlist, name }) => {
           .then((data) => {
             setTracks(data);
           });
+        
       }
     });
-  }, []);
+    
+  }, [user,name]);
 
   console.log(tracks);
   const playPlaylist1 = (id) => {
@@ -87,20 +83,14 @@ const Body = ({ spotify, playlist, name }) => {
   return (
     <div className="body">
       <Header spotify={spotify} />
-      {playlist?.items?.map((item) => {
-        if (item?.name === name) {
-          return (
-            <div className="body__info" key={item.id}>
-              <img src={item?.images[0]?.url} alt="discover weekly" />
+            <div className="body__info">
+              <img src={imageUrl} alt="discover weekly" />
               <div className="body__infoText">
                 <strong>PLAYLIST</strong>
-                <h2>{item?.name}</h2>
-                <p>{item?.description}</p>
+                <h2>{itemName}</h2>
+                <p>{description}</p>
               </div>
             </div>
-          );
-        }
-      })}
       <div className="body__songs">
         <div className="body__icons">
           <PlayCircleIcon className="body__shuffle" onClick={playPlaylist1} />
@@ -109,7 +99,7 @@ const Body = ({ spotify, playlist, name }) => {
         </div>
         {/* songs */}
         {tracks?.items?.map((item) => (
-          <SongRow track={item.track} key={item.id} playSong={playSong} />
+          <SongRow track={item?.track} key={item?.track?.id} playSong={playSong} />
         ))}
 
         {

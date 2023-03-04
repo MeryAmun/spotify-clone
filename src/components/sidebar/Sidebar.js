@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 
-const Sidebar = ({playlist,name}) => {
+const Sidebar = ({playlist,name, tabRef,click}) => {
   
   return (
     <div className="sidebar">
@@ -28,8 +28,8 @@ const Sidebar = ({playlist,name}) => {
       </strong>
       <hr />
     {
-      playlist?.items?.map(({name},index) => (
-        <SidebarOptions title={name} key={index}/>
+      playlist?.items?.map(({name, id}) => (
+        <SidebarOptions title={name} key={id} tabRef={tabRef} click={click} id={id}/>
       ))
     }
     </div>
