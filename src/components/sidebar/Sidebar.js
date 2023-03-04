@@ -4,13 +4,8 @@ import SidebarOptions from "./SidebarOptions";
 import SearchIcon from "@mui/icons-material/Search";
 import HomeIcon from "@mui/icons-material/Home";
 import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
-import { useDataLayerValue } from "../../context/DataLayer";
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
 
-const Sidebar = ({playlist,name, tabRef,click}) => {
-  
+const Sidebar = ({ playlist, tabRef, click }) => {
   return (
     <div className="sidebar">
       <img
@@ -27,11 +22,15 @@ const Sidebar = ({playlist,name, tabRef,click}) => {
         <div className="sidebar__title">PLAYLISTS</div>
       </strong>
       <hr />
-    {
-      playlist?.items?.map(({name, id}) => (
-        <SidebarOptions title={name} key={id} tabRef={tabRef} click={click} id={id}/>
-      ))
-    }
+      {playlist?.items?.map(({ name, id }) => (
+        <SidebarOptions
+          title={name}
+          key={id}
+          tabRef={tabRef}
+          click={click}
+          id={id}
+        />
+      ))}
     </div>
   );
 };

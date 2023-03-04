@@ -1,9 +1,9 @@
 import React from 'react';
 import './songRow.css'
 
-const SongRow = ({track, playSong}) => {
+const SongRow = ({track, playSong,id,...props}) => {
   return (
-    <div className='songRow' onClick={() => playSong(track.id)}>
+    <div className='songRow' onClick={props.onClick}>
       <img src={track?.album?.images[0]?.url} alt=""  className='songRow__image'/>
       <div className="songRow__info">
         <h1>{track?.name}</h1>
