@@ -4,9 +4,12 @@ import "./body.css";
 import Header from "./Header";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 //import FavoriteIcon from "@mui/icons-material/Favorite";
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import * as actionTypes from "../../constants/actionTypes";
 import { SongRow } from "../index";
+import{ Table ,TableBody,TableCell,TableHead,TableContainer,TableRow}from '@mui/material';
+import moment from "moment";
 
 const Body = ({ spotify, playlist, name }) => {
   const [{ user, token }, dispatch] = useDataLayerValue();
@@ -41,7 +44,7 @@ const Body = ({ spotify, playlist, name }) => {
   }, [user, name, itemUri, playlist?.items, token]);
   // console.log(user)
   //console.log('playlist',playlist)
-  // console.log('tracks',tracks)
+   console.log('tracks',tracks)
 
   const playPlaylist1 = () => {
     spotify
@@ -122,14 +125,39 @@ const Body = ({ spotify, playlist, name }) => {
           <MoreHorizIcon className="" />
         </div>
         {/* songs */}
-        {tracks?.items?.map((item) => (
-          <SongRow
+        {/* <hr /> */}
+        <TableContainer>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+            <TableRow>
+              <TableCell>#Title</TableCell>
+              <TableCell>Album</TableCell>
+              <TableCell>Date added</TableCell>
+              <TableCell><AccessTimeIcon/></TableCell>
+            </TableRow>
+            </TableHead>
+          
+          <TableBody>
+           {tracks?.items?.map((item) => (
+          <TableRow className="body__tableBody_tableRow">
+           <TableCell component="th" scope="row">
+           <SongRow
             track={item?.track}
             key={item?.track?.id}
             onClick={playSong}
             id={item?.track?.id}
           />
+          </TableCell>
+              <TableCell align="right">{item?.track?.album?.name}</TableCell>
+              <TableCell align="right">{moment(item?.added_at).fromNow()}</TableCell>
+              <TableCell align="right">{Math.round(item?.track?.duration_ms / 60).toFixed()}</TableCell>
+          </TableRow>
+
         ))}
+          </TableBody>
+          </Table>
+        </TableContainer>
+       
 
         {
           // console.log(playlist?.items[2]?.tracks)

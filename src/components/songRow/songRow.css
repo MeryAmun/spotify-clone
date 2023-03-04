@@ -4,6 +4,10 @@
   display: flex;
   color: white;  
 }
+.body__tableBody_tableRow{
+  border: none;
+}
+.body__tableBody_tableRow:hover,
 .songRow:hover{
  cursor: pointer; 
  background-color: black;

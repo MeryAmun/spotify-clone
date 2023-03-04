@@ -53,3 +53,9 @@ transition: 100ms transform ease-in;
 transform: scale(1.08);
 cursor: pointer;
 }
+
+.body__songs > hr {
+    border: 1px solid #282828;
+    width: 90%;
+    margin: 10px auto;
+}
