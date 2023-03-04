@@ -7,6 +7,8 @@ import ShuffleIcon from "@mui/icons-material/Shuffle";
 import RepeatIcon from "@mui/icons-material/Repeat";
 import PlaylistPlayIcon from "@mui/icons-material/PlaylistPlay";
 import VolumeDownIcon from "@mui/icons-material/VolumeDown";
+import { usher } from "../../assets/index";
+
 import { Grid, Slider } from "@mui/material";
 //import { useDataLayerValue } from '../../context/DataLayer';
 
@@ -15,7 +17,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="footer__left">
-        <img src="" alt="album logo" className="footer__albumLogo" />
+        <img src={usher} alt="album logo" className="footer__albumLogo" />
         <div className="footer__songInfo">
           <h4>Yeah!</h4>
           <p>Usher</p>
