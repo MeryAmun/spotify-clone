@@ -5,9 +5,12 @@ import SearchIcon from "@mui/icons-material/Search";
 import HomeIcon from "@mui/icons-material/Home";
 import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import { useDataLayerValue } from "../../context/DataLayer";
+import PropTypes from 'prop-types';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 
-const Sidebar = () => {
-  const[ {playlist }] = useDataLayerValue()
+const Sidebar = ({playlist,name}) => {
+  
   return (
     <div className="sidebar">
       <img

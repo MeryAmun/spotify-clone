@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './player.css'
 import { Sidebar ,Body, Footer} from '../index'
+import { useDataLayerValue } from '../../context/DataLayer';
 
-const Player = ({spotify}) => {
+const Player = ({spotify, playlist}) => {
+const [name, setName] = useState('Discover Weekly')
+
+
+const onPressTab = () => {
+
+}
+
   return (
     <div className='player'>
       <div className="player">
         <div className="player__body">
- <Sidebar/>
-       <Body spotify={spotify}/>
+ <Sidebar playlist={playlist} name={name}/>
+       <Body spotify={spotify} playlist={playlist} name={name}/>
         </div>
       </div>
     <Footer/>

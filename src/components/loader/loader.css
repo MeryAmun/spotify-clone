@@ -1,0 +1,23 @@
+/* ===========================LOADER STYLES========================= */
+.loader{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 16rem; */
+    width: 100%;
+    /* background-color: black; */
+    height: 100vh;
+  }
+  .loader__imageBox{
+    margin-bottom: 2rem;
+  }
+
+/* ========================media queries =============================================*/
+
+@media screen and (max-width:757px) {
+    .loader__image{
+        width: 90px;
+       height: 90px;
+      }
+}
