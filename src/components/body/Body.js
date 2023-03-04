@@ -3,7 +3,7 @@ import { useDataLayerValue } from "../../context/DataLayer";
 import "./body.css";
 import Header from "./Header";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+//import FavoriteIcon from "@mui/icons-material/Favorite";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import * as actionTypes from "../../constants/actionTypes";
 import { SongRow } from "../index";
