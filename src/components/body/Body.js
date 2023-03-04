@@ -118,7 +118,7 @@ const Body = ({ spotify, playlist, name }) => {
       <div className="body__songs">
         <div className="body__icons">
           <PlayCircleIcon className="body__shuffle" onClick={playPlaylist1} />
-          <FavoriteIcon className="" fontSize="large" />
+          {/* <FavoriteIcon className="" fontSize="large" /> */}
           <MoreHorizIcon className="" />
         </div>
         {/* songs */}
