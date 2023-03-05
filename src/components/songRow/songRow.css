@@ -1,9 +1,10 @@
 .songRow{
   /* margin-left: 20px; */
-  padding: 0px;
+  padding: 7px 5px 7px 0px;
   display: flex;
   color: white; 
-  width: 90%; 
+  /* border: 1px solid red;  */
+  width: 90%;
 }
 
 .body__tableBody_tableRow:hover,
@@ -29,17 +30,3 @@ margin-top: 3px;
 color: gray;
 }
 
-.body__tableBody_tableRow > .MuiTableCell-root{
-  border: none;
-  color: gray;
-  padding: 0;
-  text-align: center;
-  
-}
-.MuiTableHead-root > .MuiTableRow-root > .MuiTableCell-root{
-  color: gray;
-  padding-bottom: 0;
-}
-/* .body__tableBody_tableRow > 	.MuiTableCell-root:first-child{
-  margin-left: 10px;
-} */

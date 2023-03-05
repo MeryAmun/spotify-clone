@@ -67,6 +67,27 @@ cursor: pointer;
 }
 
 
+.body__tableHead_tableRow > .MuiTableCell-root{
+    color: gray;
+    text-align: left;
+    
+  }
+.body__tableBody_tableRow > .MuiTableCell-root{
+    border: none;
+    color: gray;
+    padding: 0;
+    text-align: center;
+    
+  }
+  .MuiTableHead-root > .MuiTableRow-root > .MuiTableCell-root{
+    color: gray;
+    padding-bottom: 0;
+  }
+  .body__tableBody_tableRow > 	.MuiTableCell-root:first-child{
+    text-align: center;
+    padding: 0px;
+    width: 30px;
+  }
 
 .body__tableBody_tableRow > .MuiTableCell-root{
     margin-right: 0;

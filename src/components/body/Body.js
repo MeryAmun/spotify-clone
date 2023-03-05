@@ -129,7 +129,7 @@ const Body = ({ spotify, playlist, name }) => {
         <TableContainer>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
-            <TableRow>
+            <TableRow className="body__tableHead_tableRow">
               <TableCell>#</TableCell>
               <TableCell>Title</TableCell>
               <TableCell>Album</TableCell>
