@@ -140,7 +140,7 @@ const Body = ({ spotify, playlist, name }) => {
           
           <TableBody>
            {tracks?.items?.map((item,index) => (
-          <TableRow className="body__tableBody_tableRow">
+          <TableRow className="body__tableBody_tableRow" key={index}>
              <TableCell>{index + 1 }</TableCell>
            <TableCell>
            <SongRow

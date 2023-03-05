@@ -65,3 +65,10 @@ cursor: pointer;
     width: 90%;
     margin: 10px auto;
 }
+
+
+
+.body__tableBody_tableRow > .MuiTableCell-root{
+    margin-right: 0;
+    
+  }
