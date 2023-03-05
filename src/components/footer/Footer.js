@@ -13,14 +13,15 @@ import { Grid, Slider } from "@mui/material";
 //import { useDataLayerValue } from '../../context/DataLayer';
 
 const Footer = () => {
-  // const {currently_playing_track} = useDataLayerValue()
+  //  const { playlist } = useDataLayerValue();
+
   return (
     <div className="footer">
       <div className="footer__left">
         <img src={usher} alt="album logo" className="footer__albumLogo" />
         <div className="footer__songInfo">
-          <h4>Yeah!</h4>
-          <p>Usher</p>
+          <h4>Now playing Track</h4>
+          <p>Artist</p>
         </div>
       </div>
       <div className="footer__center">
