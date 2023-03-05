@@ -1,7 +1,7 @@
 .body{
     flex: 0.8;
-    background-color: rgb(121, 5, 5);
-    background-image: linear-gradient(rgb(197, 9, 9), rgb(0,0,0));
+    background-color: rgb(238, 9, 9);
+    background-image: linear-gradient(180deg, rgb(63, 10, 10), rgb(15, 14, 14));
     height: 100vh;
     color: white;
     overflow-y: overlay;

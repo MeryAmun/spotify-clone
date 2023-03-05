@@ -36,6 +36,8 @@ color: gray;
 }
 .MuiTableHead-root > .MuiTableRow-root > .MuiTableCell-root{
   color: gray;
+  padding-bottom: 0;
+  
 }
 /* .body__tableBody_tableRow > 	.MuiTableCell-root:first-child{
   margin-left: 10px;
