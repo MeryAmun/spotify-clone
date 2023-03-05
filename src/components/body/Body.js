@@ -130,7 +130,8 @@ const Body = ({ spotify, playlist, name }) => {
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
             <TableRow>
-              <TableCell>#Title</TableCell>
+              <TableCell>#</TableCell>
+              <TableCell>Title</TableCell>
               <TableCell>Album</TableCell>
               <TableCell>Date added</TableCell>
               <TableCell><AccessTimeIcon/></TableCell>
@@ -138,9 +139,10 @@ const Body = ({ spotify, playlist, name }) => {
             </TableHead>
           
           <TableBody>
-           {tracks?.items?.map((item) => (
+           {tracks?.items?.map((item,index) => (
           <TableRow className="body__tableBody_tableRow">
-           <TableCell component="th" scope="row">
+             <TableCell>{index + 1 }</TableCell>
+           <TableCell>
            <SongRow
             track={item?.track}
             key={item?.track?.id}
@@ -148,9 +150,9 @@ const Body = ({ spotify, playlist, name }) => {
             id={item?.track?.id}
           />
           </TableCell>
-              <TableCell align="right">{item?.track?.album?.name}</TableCell>
-              <TableCell align="right">{moment(item?.added_at).fromNow()}</TableCell>
-              <TableCell align="right">{Math.round(item?.track?.duration_ms / 60).toFixed()}</TableCell>
+              <TableCell>{item?.track?.album?.name}</TableCell>
+              <TableCell>{moment(item?.added_at).fromNow()}</TableCell>
+              <TableCell>{(item?.track?.duration_ms  / (1000 * 60)).toFixed(1)}</TableCell>
           </TableRow>
 
         ))}

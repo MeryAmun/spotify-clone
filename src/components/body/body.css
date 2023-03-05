@@ -1,6 +1,7 @@
 .body{
     flex: 0.8;
-    background: linear-gradient(rgb(91, 87, 115), rgba(0,0,0,1));
+    background-color: rgb(121, 5, 5);
+    background-image: linear-gradient(rgb(197, 9, 9), rgb(0,0,0));
     height: 100vh;
     color: white;
     overflow-y: overlay;
@@ -11,7 +12,7 @@
 }
 .body__info{
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     padding: 10px;
 }
 .body__info > img {
@@ -22,10 +23,15 @@
 }
 .body__infoText{
 flex: 1;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
 }
 .body__infoText > h2 {
-font-size: 48px;
+font-size: 5rem;
+font-weight: 700;
 margin-bottom: 10px;
+word-wrap: unset;
 }
 .body__infoText > p {
 font-size: 14px;
